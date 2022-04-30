@@ -1,0 +1,83 @@
+.clock-container {
+  position: relative;
+  overflow: hidden;
+  display: block;
+
+  &.styling {
+    border-radius: 50%;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.clock-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .background-numbers {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+    z-index: 1;
+    .numbers {
+      fill: #dc3545;
+    }
+  }
+
+  .indicator {
+    border-radius: 10px;
+    transform-origin: bottom;
+    outline: 1px solid transparent; // Firefox fix on rotation
+    position: absolute;
+    bottom: 50%;
+
+    &.seconds-indicator {
+      width: 1%;
+      height: 37.5%;
+      z-index: 2;
+      background-color: #007bff;
+    }
+
+    &.minutes-indicator {
+      width: 2%;
+      height: 30%;
+      z-index: 3;
+      background-color: #cd6a51;
+    }
+
+    &.hours-indicator {
+      width: 3%;
+      height: 22.5%;
+      z-index: 4;
+      background-color: #8f9c6c;
+    }
+  }
+
+  .indicator-cover {
+    position: absolute;
+    bottom: calc(50% - (10% / 2));
+    border-radius: 50%;
+    width: 10%;
+    height: 10%;
+    background-color: #dc3545;
+    z-index: 5;
+  }
+}
+
+.digital {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 20px;
+}
